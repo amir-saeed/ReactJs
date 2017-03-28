@@ -5,16 +5,6 @@ class IPAddress extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            listItem : null
-        };
-    }
-
-    componentDidMount() {
-        console.log( $(ReactDom.findDOMNode(this)).find("ul")  );
-        console.log( this.state.listItem );
-        //$(ReactDom.findDOMNode(this)).modal('show');
-       // $(ReactDom.findDOMNode(this)).on('hidden.bs.modal', this.props.handleHideModal);
     }
 
     findIP(onNewIP) { //  onNewIp - your listener function for new IPs
@@ -47,22 +37,19 @@ class IPAddress extends React.Component {
     }
 
     addIP(ip) {
-        this.setState({ listItem: ip });
-       
         var li = document.createElement('li');
         li.textContent = ip;
-        $(".ip-list").appendChild(li);
+        document.getElementById("ip-list").appendChild(li);
     }
 
     render() {
-        var ul = document.createElement('ul');
-        ul.textContent = 'Your IPs are: ';
-        document.body.appendChild(ul);
+      //  var ul = document.createElement('ul');
+     //   document.body.appendChild(ul);
 
         this.findIP(this.addIP);
         return (
             <div>
-                <ul className="ip-list"></ul>
+                <ul id="ip-list"></ul>
             </div>
         );
     }

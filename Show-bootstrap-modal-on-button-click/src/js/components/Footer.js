@@ -5,10 +5,8 @@ export default class Footer extends React.Component {
   render() {
     return (
       <footer>
-        <div className="row">
-          <div className="col-md-12">
-            Copyright @2017 , written by Amir Saeed
-            </div>
+        <div class="navbar navbar-inner  navbar-fixed-bottom">
+          <p class="muted credit"><center>Copyright @2017 , written by Amir Saeed</center></p>
         </div>
       </footer>
     );
