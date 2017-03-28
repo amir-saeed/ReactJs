@@ -8,17 +8,12 @@ class Body extends React.Component {
             view: { showModal: false }
         };
     }
-
-    // getInitialState() {
-    //     return { view: { showModal: false } }
-    // }
-
+    
     handleHideModal() {
         this.setState({ view: { showModal: false } });
     }
 
     handleShowModal() {
-        console.log('i am clicked',this.state);
         this.setState({ view: { showModal: true } });
     }
 
@@ -27,11 +22,10 @@ class Body extends React.Component {
             <div>
                 <div className="row">
                     <div className="col-md-12">
-                        <button className="btn btn-primary btn-block" onClick={this.handleShowModal.bind(this)}>Open Modal</button>
-                        	{this.state.view.showModal ? <Modal handleHideModal={this.handleHideModal}/> : null}
+                        <button className="btn btn-primary" onClick={this.handleShowModal.bind(this)}>Open Modal</button>
+                        {this.state.view.showModal ? <Modal handleHideModal={this.handleHideModal.bind(this)} /> : null}
                     </div>
-                </div>
-                <Modal />
+                </div>                
             </div>
         );
     }
