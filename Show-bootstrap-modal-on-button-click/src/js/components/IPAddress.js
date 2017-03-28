@@ -38,18 +38,16 @@ class IPAddress extends React.Component {
 
     addIP(ip) {
         var li = document.createElement('li');
+        li.className = "list-group-item";
         li.textContent = ip;
         document.getElementById("ip-list").appendChild(li);
     }
 
-    render() {
-      //  var ul = document.createElement('ul');
-     //   document.body.appendChild(ul);
-
+    render() {       
         this.findIP(this.addIP);
         return (
             <div>
-                <ul id="ip-list"></ul>
+                <ul id="ip-list" className="list-group"></ul>
             </div>
         );
     }

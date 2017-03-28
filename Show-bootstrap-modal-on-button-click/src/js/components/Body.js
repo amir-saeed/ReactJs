@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from './Modal';
+import IPAddress from './IPAddress';
 
 class Body extends React.Component {
     constructor(props) {
@@ -8,7 +9,7 @@ class Body extends React.Component {
             view: { showModal: false }
         };
     }
-    
+
     handleHideModal() {
         this.setState({ view: { showModal: false } });
     }
@@ -19,13 +20,11 @@ class Body extends React.Component {
 
     render() {
         return (
-            <div>
-                <div className="row">
-                    <div className="col-md-12">
-                        <button className="btn btn-primary" onClick={this.handleShowModal.bind(this)}>Open Modal</button>
-                        {this.state.view.showModal ? <Modal handleHideModal={this.handleHideModal.bind(this)} /> : null}
-                    </div>
-                </div>                
+            <div className="row">
+                <div className="col-md-12">
+                    <button className="btn btn-primary" onClick={this.handleShowModal.bind(this)}>Open Modal</button>
+                    {this.state.view.showModal ? <Modal handleHideModal={this.handleHideModal.bind(this)} /> : null}
+                </div>
             </div>
         );
     }
