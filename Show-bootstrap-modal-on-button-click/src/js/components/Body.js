@@ -4,9 +4,9 @@ import Modal from './Modal';
 class Body extends React.Component {
     constructor(props) {
         super(props);
-        // this.state = {
-        //     view: { showModal: false }
-        // };
+        this.state = {
+            view: { showModal: false }
+        };
     }
 
     // getInitialState() {
@@ -28,6 +28,7 @@ class Body extends React.Component {
                 <div className="row">
                     <div className="col-md-12">
                         <button className="btn btn-primary btn-block" onClick={this.handleShowModal.bind(this)}>Open Modal</button>
+                        	{this.state.view.showModal ? <Modal handleHideModal={this.handleHideModal}/> : null}
                     </div>
                 </div>
                 <Modal />
