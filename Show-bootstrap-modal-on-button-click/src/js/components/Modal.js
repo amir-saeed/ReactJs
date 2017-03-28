@@ -1,5 +1,7 @@
 import React from 'react';
 
+import IPAddress from './IPAddress';
+
 let ReactDom = require('react-dom');
 
 class Modal extends React.Component {
@@ -27,7 +29,8 @@ class Modal extends React.Component {
                             <h4 className="modal-title">Modal Form</h4>
                         </div>
                         <div className="modal-body">
-                            <p>Modal form body here;</p>
+                            <p>List of IP Addresses:</p>
+                            <IPAddress />
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
