@@ -1,6 +1,5 @@
 import React from 'react';
 import Modal from './Modal';
-import IPAddress from './IPAddress';
 
 class Body extends React.Component {
     constructor(props) {
@@ -20,7 +19,7 @@ class Body extends React.Component {
 
     render() {
         return (
-            <div className="row">
+            <div className="row custom-body">
                 <div className="col-md-12">
                     <button className="btn btn-primary" onClick={this.handleShowModal.bind(this)}>Open Modal</button>
                     {this.state.view.showModal ? <Modal handleHideModal={this.handleHideModal.bind(this)} /> : null}
@@ -29,5 +28,7 @@ class Body extends React.Component {
         );
     }
 }
-
+/*
+* This is main body of the page
+*/
 export default Body;

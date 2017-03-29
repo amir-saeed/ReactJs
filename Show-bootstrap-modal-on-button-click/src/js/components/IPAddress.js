@@ -43,16 +43,22 @@ class IPAddress extends React.Component {
         document.getElementById("ip-list").appendChild(li);
     }
 
-    render() {       
+    render() {
         this.findIP(this.addIP);
         return (
-            <div>
-                <ul id="ip-list" className="list-group"></ul>
+            <div className="row">
+                <div className="col-md-12">
+                    <h3>List of IP Addresses:</h3>
+                    <ul id="ip-list" className="list-group"></ul>
+                </div>
             </div>
         );
     }
 };
 
+/*
+* IP Address fetching component
+*/
 export default IPAddress;
 
 

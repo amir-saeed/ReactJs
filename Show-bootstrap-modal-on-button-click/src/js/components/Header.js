@@ -1,12 +1,23 @@
 import React from "react";
 
-export default class Header extends React.Component { 
+class Header extends React.Component {
   render() {
-    const welcomMessage = "Welcome to my page";
+    const welcomMessage = "Fetch IPAddress of computer and show bootstrap modal on button click";
     return (
-      <div class="row">
-        <h1>{welcomMessage}</h1>
-      </div>
+      <header>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">{welcomMessage}</a>
+            </div>
+          </div>
+        </nav>
+      </header>
     );
   }
 }
+
+/*
+ * To accomodate header  
+*/
+export default Header;

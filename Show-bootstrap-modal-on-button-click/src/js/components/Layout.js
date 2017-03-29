@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import Body from "./Body";
 import IPAddress from './IPAddress';
 
-export default class Layout extends React.Component {
+class Layout extends React.Component {
   constructor() {
     super();
   }
@@ -13,11 +13,16 @@ export default class Layout extends React.Component {
     return (
       <div>
         <Header />
-        <Body />
-        <h3>List of IP Addresses:</h3>
-        <IPAddress />
+        <div class="container">
+          <Body />
+          <IPAddress />
+        </div>
         <Footer />
       </div>
     );
   }
 }
+/*
+ * Main Layout Class(Template) to accomodate whole page  
+*/
+export default Layout;

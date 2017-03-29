@@ -1,5 +1,4 @@
 import React from 'react';
-
 let ReactDom = require('react-dom');
 
 class Modal extends React.Component {
