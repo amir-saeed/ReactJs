@@ -48,7 +48,6 @@ class IPAddress extends React.Component {
         return (
             <div className="row">
                 <div className="col-md-12">
-                    <h3>List of IP Addresses:</h3>
                     <ul id="ip-list" className="list-group"></ul>
                 </div>
             </div>

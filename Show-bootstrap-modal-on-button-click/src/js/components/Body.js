@@ -19,9 +19,9 @@ class Body extends React.Component {
 
     render() {
         return (
-            <div className="row custom-body">
+            <div className="row modal-body">
                 <div className="col-md-12">
-                    <button className="btn btn-primary" onClick={this.handleShowModal.bind(this)}>Open Modal</button>
+                    <span onClick={this.handleShowModal.bind(this)}><i className="glyphicon glyphicon-question-sign" /></span>
                     {this.state.view.showModal ? <Modal handleHideModal={this.handleHideModal.bind(this)} /> : null}
                 </div>
             </div>

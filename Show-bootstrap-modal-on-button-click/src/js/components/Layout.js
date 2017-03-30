@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Body from "./Body";
-import IPAddress from './IPAddress';
+import Form from './Form';
 
 class Layout extends React.Component {
   constructor() {
@@ -13,9 +13,9 @@ class Layout extends React.Component {
     return (
       <div>
         <Header />
-        <div class="container">
+        <div class="container custom-body">
           <Body />
-          <IPAddress />
+          <Form />
         </div>
         <Footer />
       </div>
