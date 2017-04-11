@@ -1,0 +1,9 @@
+# React Single Page App
+
+Creating single page application in React
+
+## Instructions to run
+1. Navigate to folder *basics*
+2. *NPM install*
+3. *NPM run dev*
+4. Navigate to localhost:8080
