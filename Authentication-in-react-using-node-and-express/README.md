@@ -1,4 +1,15 @@
 # Single page application with react, node and express
+## Introduction
+This is single page application to show that how to validate form on client as well as server side, also fetch IP address of the local user, display it and after sucessful login, redirect user to dashboard, otherwise, show error message.
+
+## Technologies used
+1. React / React-dom / React-router
+2. Node
+3. Express
+4. MongoDB / Robomongo
+5. Bootstrap
+6. HTML / CSS3
+
 ## Instructions to run
 
 ### Create mongoDB 
