@@ -2,7 +2,7 @@ import React from "react";
 
 class Header extends React.Component {
   render() {
-    const welcomMessage = "Fetch IPAddress of computer and show bootstrap modal on button click";
+    const welcomMessage = "Node, React & Express Demo";
     return (
       <header>
         <nav class="navbar navbar-inverse navbar-fixed-top">

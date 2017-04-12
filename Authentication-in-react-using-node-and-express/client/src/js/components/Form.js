@@ -30,7 +30,7 @@ class Form extends React.Component {
     }
 
     hideLoading() {
-        // this.setState({ loading: false });
+        this.setState({ loading: false });
     }
 
     _handleSubmit(e) {
@@ -44,9 +44,9 @@ class Form extends React.Component {
         }
 
         var xhr = this._create();
-        xhr.done(this._onSuccess)
+        xhr.done(this._onSuccess.bind(this))
             .fail(this._onError.bind(this))
-            .always(this.hideLoading)
+            .always(this.hideLoading.bind(this))
     }
 
     _validate() {
@@ -76,41 +76,27 @@ class Form extends React.Component {
 
 
     _onSuccess(data) {
-
-        console.log('_onSuccess', data);
         if (data) {
             if (data.success) {
+                this.setState({
+                    errors: {}
+                });
+
+                console.log('83483838838',this.state);
+
                 hashHistory.push('/dashboard');
             }
         }
-
-        //  this.refs.user_form.getDOMNode().reset();
-        //this.setState(this.getInitialState());
-
-        // this.setState({
-        //   errors: {}
-        // });
-
-
-
-
-
-
     }
 
-    // _routeHandler() {
-    //     this.props.history.pushState(null, '/dashboard');
-    // }
-
     _onError(data) {
-        if (data.responseJSON.success) {
+        if (!data.responseJSON.success) {
             let onErrors = {};
             onErrors.summary = data.responseJSON.message;
             this.setState({
                 errors: onErrors
             });
         }
-        console.log('_onError', this.state);
     }
 
     render() {
@@ -118,8 +104,8 @@ class Form extends React.Component {
             <div className="form-section">
                 <div className="container">
                     <div className="row">
-                        <div class="col-md-5 col-md-offset-3">
-                            <h3>{this.state.errors.summary }</h3>                            
+                        <div class="col-md-5 col-md-offset-3 error-summary">
+                            <p>{this.state.errors.summary}</p>
                         </div>
                     </div>
                     <div className="row">
