@@ -25,12 +25,7 @@ function validateSignupForm(payload) {
         isFormValid = false;
         errors.password = 'Password must have at least 8 characters.';
     }
-
-    if (!payload || typeof payload.name !== 'string' || payload.name.trim().length === 0) {
-        isFormValid = false;
-        errors.name = 'Please provide your name.';
-    }
-
+   
     if (!isFormValid) {
         message = 'Check the form for errors.';
     }
@@ -50,6 +45,9 @@ function validateSignupForm(payload) {
  *                   errors tips, and a global message for the whole form.
  */
 function validateLoginForm(payload) {
+
+    console.log('My payload:::',payload);
+
     const errors = {};
     let isFormValid = true;
     let message = '';

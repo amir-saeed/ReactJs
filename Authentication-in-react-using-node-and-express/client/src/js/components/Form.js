@@ -43,9 +43,9 @@ class Form extends React.Component {
         }
 
         var xhr = this._create();
-        // xhr.done(this._onSuccess)
-        //     .fail(this._onError)
-        //     .always(this.hideLoading)
+        xhr.done(this._onSuccess)
+            .fail(this._onError)
+            .always(this.hideLoading)
     }
 
     _validate() {
@@ -59,67 +59,19 @@ class Form extends React.Component {
         return errors;
     }
 
-    // _create() {
-    //     return $.ajax({
-    //         url: 'http://localhost:3000/auth/login/',
-    //         type: 'POST',
-    //         dataType: 'jsonp',
-    //         data: {
-    //             email: this.state.email,
-    //             password: this.state.password
-    //         },
-    //         beforeSend: function () {
-    //             this.setState({ loading: true });
-    //         }.bind(this)
-    //     })
-    // }
-
     _create() {
-        // create a string for an HTTP body message
-        const email = encodeURIComponent(this.state.email);
-        const password = encodeURIComponent(this.state.password);
-        const formData = `email=${email}&password=${password}`;
-        // create an AJAX request 1
-        const xhr = new XMLHttpRequest();
-        xhr.open('post', '/auth/login');
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhr.responseType = 'json';
-        xhr.addEventListener('load', () => {
-
-            console.log(xhr.status);
-
-            if (xhr.status === 200) {
-                // success
-
-                // change the component-container state
-                this.setState({
-                    errors: {}
-                });
-
-                // save the token
-               // Auth.authenticateUser(xhr.response.token);
-
-
-                // change the current URL to /
-                this.context.router.replace('/');
-            } else {
-                // failure
-
-                console.log('7373734737473::::', xhr.response);
-
-                // change the component state
-                const errors = xhr.response.errors ? xhr.response.errors : {};
-                //errors.summary = xhr.response.message;
-
-                // this.setState({
-                //     errors
-                // });
-            }
-        });
-
-        console.log(formData);
-
-        xhr.send(formData);
+        return $.ajax({
+            url: 'http://localhost:3000/auth/login/',
+            type: 'POST',
+            dataType: 'jsonp',
+            data: {
+                email: this.state.email,
+                password: this.state.password
+            },
+            beforeSend: function () {
+                this.setState({ loading: true });
+            }.bind(this)
+        })
     }
 
 
@@ -127,13 +79,19 @@ class Form extends React.Component {
 
         console.log('_onSuccess', data);
 
-        //  this.refs.user_form.getDOMNode().reset();
+      //  this.refs.user_form.getDOMNode().reset();
         //this.setState(this.getInitialState());
+
+        this.setState({
+          errors: {}
+        });
     }
 
     _onError(data) {
 
-        console.log('_onError', data);
+        console.log('_onError', data );
+        //this.state.errors.summary = xhr.response.message;
+        
 
         // var message = "Failed to create the user";
         // var res = data.responseJSON;
@@ -145,24 +103,6 @@ class Form extends React.Component {
         //         errors: res.errors
         //     });
         // }
-    }
-
-
-    // Create the XHR object.
-    createCORSRequest(method, url) {
-        var xhr = new XMLHttpRequest();
-        if ("withCredentials" in xhr) {
-            // XHR for Chrome/Firefox/Opera/Safari.
-            xhr.open(method, url, true);
-        } else if (typeof XDomainRequest != "undefined") {
-            // XDomainRequest for IE.
-            xhr = new XDomainRequest();
-            xhr.open(method, url);
-        } else {
-            // CORS not supported.
-            xhr = null;
-        }
-        return xhr;
     }
 
     render() {
