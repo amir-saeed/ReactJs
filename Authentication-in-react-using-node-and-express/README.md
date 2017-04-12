@@ -22,7 +22,7 @@ Navigate to this folder
 
 1. run : *NPM install*
 
-After all depencies installation, navigate to "server" folder and type
+2. After all depencies installation, navigate to "server" folder and type
 
 run : *node server*
 
@@ -37,11 +37,19 @@ When you run the app on the brower, the output would be
 
 ![Alt text](https://raw.githubusercontent.com/amir-saeed/ReactJs/master/Show-bootstrap-modal-on-button-click/output.png?raw=true "Bootstrap modal")
 
+##### Home Page
+
 ![Alt text](https://raw.githubusercontent.com/amir-saeed/ReactJs/master/Authentication-in-react-using-node-and-express/Demo/home-page.png?raw=true "Bootstrap modal")
+
+##### Client side validation on submit
 
 ![Alt text](https://raw.githubusercontent.com/amir-saeed/ReactJs/master/Authentication-in-react-using-node-and-express/Demo/home-submit.png?raw=true "Bootstrap modal")
 
+##### Server side error validation on submit
+
 ![Alt text](https://raw.githubusercontent.com/amir-saeed/ReactJs/master/Authentication-in-react-using-node-and-express/Demo/home-submit-error.png?raw=true "Bootstrap modal")
+
+##### Dashboard on successful login
 
 When you submit correct email and password, system will take you to dashboard
 
