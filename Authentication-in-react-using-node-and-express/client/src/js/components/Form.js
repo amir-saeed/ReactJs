@@ -1,4 +1,5 @@
 import React from 'react';
+import { Router, Route, IndexRoute, hashHistory, browserHistory } from "react-router";
 import IPAddress from './IPAddress';
 import Loading from './spinner';
 
@@ -29,7 +30,7 @@ class Form extends React.Component {
     }
 
     hideLoading() {
-        this.setState({ loading: false });
+        // this.setState({ loading: false });
     }
 
     _handleSubmit(e) {
@@ -44,7 +45,7 @@ class Form extends React.Component {
 
         var xhr = this._create();
         xhr.done(this._onSuccess)
-            .fail(this._onError)
+            .fail(this._onError.bind(this))
             .always(this.hideLoading)
     }
 
@@ -63,7 +64,6 @@ class Form extends React.Component {
         return $.ajax({
             url: 'http://localhost:3000/auth/login/',
             type: 'POST',
-            dataType: 'jsonp',
             data: {
                 email: this.state.email,
                 password: this.state.password
@@ -78,37 +78,50 @@ class Form extends React.Component {
     _onSuccess(data) {
 
         console.log('_onSuccess', data);
+        if (data) {
+            if (data.success) {
+                hashHistory.push('/dashboard');
+            }
+        }
 
-      //  this.refs.user_form.getDOMNode().reset();
+        //  this.refs.user_form.getDOMNode().reset();
         //this.setState(this.getInitialState());
 
-        this.setState({
-          errors: {}
-        });
+        // this.setState({
+        //   errors: {}
+        // });
+
+
+
+
+
+
     }
 
+    // _routeHandler() {
+    //     this.props.history.pushState(null, '/dashboard');
+    // }
+
     _onError(data) {
-
-        console.log('_onError', data );
-        //this.state.errors.summary = xhr.response.message;
-        
-
-        // var message = "Failed to create the user";
-        // var res = data.responseJSON;
-        // if (res.message) {
-        //     message = data.responseJSON.message;
-        // }
-        // if (res.errors) {
-        //     this.setState({
-        //         errors: res.errors
-        //     });
-        // }
+        if (data.responseJSON.success) {
+            let onErrors = {};
+            onErrors.summary = data.responseJSON.message;
+            this.setState({
+                errors: onErrors
+            });
+        }
+        console.log('_onError', this.state);
     }
 
     render() {
         return (
             <div className="form-section">
                 <div className="container">
+                    <div className="row">
+                        <div class="col-md-5 col-md-offset-3">
+                            <h3>{this.state.errors.summary }</h3>                            
+                        </div>
+                    </div>
                     <div className="row">
                         <div class="col-md-5 col-md-offset-3">
                             <form id="login-form" ref='user_form' role="form" onSubmit={this._handleSubmit.bind(this)} >

@@ -17,12 +17,16 @@ module.exports = new PassportLocalStrategy({
         email: email.trim(),
         password: password.trim()
     };
-
+    
     // find a user by email address
     return User.findOne({ email: userData.email }, (err, user) => {
+
+        console.log('Found user data:::', user);
+
         if (err) { return done(err); }
 
         if (!user) {
+            console.log('Why i am here now');
             const error = new Error('Incorrect email or password');
             error.name = 'IncorrectCredentialsError';
 
@@ -33,7 +37,13 @@ module.exports = new PassportLocalStrategy({
         return user.comparePassword(userData.password, (passwordErr, isMatch) => {
             if (err) { return done(err); }
 
+
+            console.log('Well is matched or not guess::', isMatch);
+
             if (!isMatch) {
+
+                console.log('Well its not matched surprise');
+
                 const error = new Error('Incorrect email or password');
                 error.name = 'IncorrectCredentialsError';
 

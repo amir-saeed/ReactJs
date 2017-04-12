@@ -66,6 +66,8 @@ function validateLoginForm(payload) {
         message = 'Check the form for errors.';
     }
 
+    console.log('isFormValid:::',isFormValid);
+
     return {
         success: isFormValid,
         message,
@@ -113,9 +115,15 @@ router.post('/signup', (req, res, next) => {
 
 router.post('/login', (req, res, next) => {
 
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
     console.log('req.body:::',req.body);
 
     const validationResult = validateLoginForm(req.body);
+    
+    console.log('validationResult',validationResult);
+
     if (!validationResult.success) {
         return res.status(400).json({
             success: false,
@@ -126,6 +134,11 @@ router.post('/login', (req, res, next) => {
 
 
     return passport.authenticate('local-login', (err, token, userData) => {
+
+        console.log('err:::',err);
+        console.log('token:::',token);
+        console.log('userData:::',userData);
+
         if (err) {
             if (err.name === 'IncorrectCredentialsError') {
                 return res.status(400).json({
@@ -139,6 +152,9 @@ router.post('/login', (req, res, next) => {
                 message: 'Could not process the form.'
             });
         }
+
+
+        console.log('9849494499::res:::',res);
 
 
         return res.json({

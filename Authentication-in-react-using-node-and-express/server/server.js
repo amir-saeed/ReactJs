@@ -30,6 +30,9 @@ app.use('/api', authCheckMiddleware);
 // routes
 const authRoutes = require('./routes/auth');
 const apiRoutes = require('./routes/api');
+
+console.log('i am going to call apis');
+
 app.use('/auth', authRoutes);
 app.use('/api', apiRoutes);
 

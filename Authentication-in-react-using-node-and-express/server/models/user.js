@@ -4,25 +4,24 @@ const bcrypt = require('bcrypt');
 
 // define the User model schema
 const UserSchema = new mongoose.Schema({
-  email: {
-    type: String,
-    required: true,
-    index: { unique: true }
-  },
-  password: { 
-    type: String, 
-    required: true,
-    //name: String
-  },
-  
-  // login attempts and lock injectors
+    email: {
+        type: String,
+        required: true,
+        index: { unique: true }
+    },
+    password: {
+        type: String,
+        required: true
+    },
+
+    // login attempts and lock injectors
     loginAttempts: { type: Number, required: true, default: 0 },
     lockUntil: { type: Number }
 });
 
 
 //We add a new helper methods incLoginAttempts and  a virtual property (user.isLocked) to help us out internally. 
-UserSchema.virtual('isLocked').get(function() {
+UserSchema.virtual('isLocked').get(function () {
     // check for a future lockUntil timestamp
     return !!(this.lockUntil && this.lockUntil > Date.now());
 });
@@ -31,24 +30,27 @@ UserSchema.virtual('isLocked').get(function() {
  * The pre-save hook method.
  */
 UserSchema.pre('save', function saveHook(next) {
-  const user = this;
+    const user = this;
 
-  // proceed further only if the password is modified or the user is new
-  if (!user.isModified('password')) return next();
+    // proceed further only if the password is modified or the user is new
+    if (!user.isModified('password')) return next();
 
 
-  return bcrypt.genSalt((saltError, salt) => {
-    if (saltError) { return next(saltError); }
+    return bcrypt.genSalt((saltError, salt) => {
+        if (saltError) { return next(saltError); }
 
-    return bcrypt.hash(user.password, salt, (hashError, hash) => {
-      if (hashError) { return next(hashError); }
+        return bcrypt.hash(user.password, salt, (hashError, hash) => {
+            if (hashError) { return next(hashError); }
 
-      // replace a password string with hash value
-      user.password = hash;
+            // replace a password string with hash value
 
-      return next();
+            console.log('HASH040040040400404', hash);
+
+            user.password = hash;
+
+            return next();
+        });
     });
-  });
 });
 
 /**
@@ -58,11 +60,10 @@ UserSchema.pre('save', function saveHook(next) {
  * @returns {object} callback
  */
 UserSchema.methods.comparePassword = function comparePassword(password, callback) {
-  bcrypt.compare(password, this.password, callback);
+    bcrypt.compare(password, this.password, callback);
 };
 
-
-UserSchema.methods.incLoginAttempts = function(callback) {
+UserSchema.methods.incLoginAttempts = function (callback) {
     // if we have a previous lock that has expired, restart at 1
     if (this.lockUntil && this.lockUntil < Date.now()) {
         return this.update({
@@ -103,9 +104,9 @@ UserSchema.statics.failedLogin = {
     instead of the user, along with an appropriate enum value
     If an error occurs anywhere in the process, we maintain the standard "errback" pattern
  */
-    
-UserSchema.statics.getAuthenticated = function(email, password, callback) {
-    this.findOne({ email: email }, function(err, user) {
+
+UserSchema.statics.getAuthenticated = function (email, password, callback) {
+    this.findOne({ email: email }, function (err, user) {
         if (err) return callback(err);
 
         // make sure the user exists
@@ -116,14 +117,14 @@ UserSchema.statics.getAuthenticated = function(email, password, callback) {
         // check if the account is currently locked
         if (user.isLocked) {
             // just increment login attempts if account is already locked
-            return user.incLoginAttempts(function(err) {
+            return user.incLoginAttempts(function (err) {
                 if (err) return callback(err);
                 return callback(null, null, reasons.MAX_ATTEMPTS);
             });
         }
 
         // test for a matching password
-        user.comparePassword(password, function(err, isMatch) {
+        user.comparePassword(password, function (err, isMatch) {
             if (err) return callback(err);
 
             // check if the password was a match
@@ -135,14 +136,14 @@ UserSchema.statics.getAuthenticated = function(email, password, callback) {
                     $set: { loginAttempts: 0 },
                     $unset: { lockUntil: 1 }
                 };
-                return user.update(updates, function(err) {
+                return user.update(updates, function (err) {
                     if (err) return callback(err);
                     return callback(null, user);
                 });
             }
 
             // password is incorrect, so increment login attempts before responding
-            user.incLoginAttempts(function(err) {
+            user.incLoginAttempts(function (err) {
                 if (err) return c(err);
                 return callback(null, null, reasons.PASSWORD_INCORRECT);
             });
