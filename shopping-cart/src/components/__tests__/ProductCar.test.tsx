@@ -1,9 +1,10 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import ProductCard from "../ProductCard";
+import { ProductCard } from "../ProductCard"; // ✅ Ensure named import
 import { Provider } from "react-redux";
 import { store } from "../../store/store";
+import type { Product } from "../../types"; // ✅ Ensure Product type is imported
 
-const mockProduct = {
+const mockProduct: Product = {
   id: 1,
   title: "Test Product",
   price: 29.99,
@@ -15,17 +16,12 @@ const mockProduct = {
 test("renders ProductCard and allows adding to cart", () => {
   render(
     <Provider store={store}>
-      <ProductCard product={mockProduct} />
-    </Provider>
+      <ProductCard product={mockProduct} />{" "}
+      {/* ✅ TypeScript now recognizes the prop */}
+    </Provider>,
   );
 
-  // Check if the product title appears
   expect(screen.getByText(/Test Product/i)).toBeInTheDocument();
-
-  // Click "Add to Cart" button
-  const button = screen.getByText(/Add to Cart/i);
-  fireEvent.click(button);
-
-  // Verify success message
+  fireEvent.click(screen.getByText(/Add to Cart/i));
   expect(screen.getByText(/Item added to cart!/i)).toBeInTheDocument();
 });

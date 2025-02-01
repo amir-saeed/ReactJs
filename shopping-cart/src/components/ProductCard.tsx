@@ -47,4 +47,5 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   );
 };
 
+export { ProductCard };
 export default memo(ProductCard);
