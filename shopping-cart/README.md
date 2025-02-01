@@ -1,4 +1,4 @@
-🛒 E-Commerce Store - Shopping Cart & Checkout
+### 🛒 E-Commerce Store - Shopping Cart & Checkout
 
 Overview
 
@@ -196,6 +196,14 @@ Open a pull request.
 
 For any questions or issues, feel free to reach out!
 
-🐙 GitHub: amir-saeed
+
+🐙 GitHub: your-username
 
 🚀 Happy Coding! 🎉
+
+![Home Page](public/1.png)
+![Category Filtering](public/2.png)
+![Shopping Cart](public/3.png)
+![Checkout Page](public/4.png)
+![Checkout with User Info](public/5.png)
+![Payment Page](public/6.png)
