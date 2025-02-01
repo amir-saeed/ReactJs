@@ -2,7 +2,6 @@
   "name": "shopping-cart",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -10,7 +9,8 @@
     "preview": "vite preview",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.1",
@@ -30,6 +30,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^14.6.1",
+    "@types/cypress": "^1.1.6",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@types/testing-library__jest-dom": "^6.0.0",
@@ -37,6 +38,7 @@
     "@typescript-eslint/parser": "^8.22.0",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
+    "cypress": "^14.0.1",
     "eslint": "^9.19.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-import": "^2.31.0",
