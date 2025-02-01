@@ -110,7 +110,7 @@ Code quality and formatting
 
 1️⃣ Clone the Repository
 
- git clone https://github.com/your-username/ecommerce-store.git
+ git clone https://github.com/amir-saeed/ReactJs.git
  cd ecommerce-store
 
 2️⃣ Install Dependencies
