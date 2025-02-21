@@ -2,10 +2,13 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { INLINES, Document } from "@contentful/rich-text-types";
 
 interface RichTextRendererProps {
-  document: Document;
+  document: Document | null;
 }
 
 const RichTextRenderer = ({ document }: RichTextRendererProps) => {
+
+  if(!document) return null;
+
   const options = {
     renderNode: {
       [INLINES.HYPERLINK]: (node: any, children: any) => {
