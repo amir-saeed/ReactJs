@@ -1,12 +1,24 @@
+import { useContentfulEntries } from "../hooks/useFetchContententfulData";
+import RichTextRenderer from "./shared/RichTextRenderer";
+
 const Hero = () => {
+  const { entries, loading, error } = useContentfulEntries("bio");
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+
+  const jobTile = (entries?.[0]?.fields.jobTitle as string) ?? "";
+  let careerSummary: any = entries?.[0]?.fields.careerSummary;
+
+  console.log(entries);
+
+  
   return (
-    <div className="flex flex-col tablet:flex-row items-center justify-between p-6 tablet:p-12 w-full bg-base-200 min-h-screen;">
-      <div className="w-full tablet:w-3/5 space-y-4">
-         <h1 className="text-4xl font-bold text-gray-900">John Doe</h1>
-         <h2 className="text-2xl font-semibold text-gray-700 py-3">Full Stack Developer</h2>
-         <div className="text-gray-600 leading-relaxed text-justify">
-              this is test text
-         </div>
+    <div className="bg-gray-50 p-8 w-full text-center">
+      <h1 className="text-4xl font-bold text-gray-700">John Doe</h1>
+      <h2 className="text-2xl font-semibold text-gray-700 py-3">{jobTile}</h2>
+      <div className="text-gray-500 mt-2 text-justify">
+        <RichTextRenderer document={careerSummary} />
       </div>
     </div>
   );

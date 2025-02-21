@@ -1,3 +1,4 @@
+import Experience from "./components/Experience";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
@@ -5,14 +6,17 @@ import Hero from "./components/Hero";
 const App = () => {
   return (
     <>
-      <div className="container">
-        <Header />
-        <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-grow flex items-center justify-center p-4">
+        <div className="flex flex-col">
           <Hero />
+          <div className="flex w-full flex-col">
+            <div className="divider"></div>
+          </div>
+          <Experience />
         </div>
-        
-        <Footer />
-      </div>
+      </main>
+      <Footer />
     </>
   );
 };
