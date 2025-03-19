@@ -1,0 +1,161 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1202, 51.5101]
+      },
+      "properties": {
+        "name": "The Savoy",
+        "address": "Strand, London WC2R 0EZ",
+        "type": "hotel",
+        "link": "https://www.thesavoylondon.com/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1472, 51.507]
+      },
+      "properties": {
+        "name": "The Ritz London",
+        "address": "150 Piccadilly, St. James's, London W1J 9BR",
+        "type": "hotel",
+        "link": "https://www.theritzlondon.com/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.14874, 51.51207]
+      },
+      "properties": {
+        "name": "Claridge's",
+        "address": "Brook Street, Mayfair, London W1K 4HR",
+        "type": "hotel",
+        "link": "https://www.claridges.co.uk/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1422, 51.5175]
+      },
+      "properties": {
+        "name": "The Langham London",
+        "address": "1c Portland Pl, Marylebone, London W1B 1JA",
+        "type": "hotel",
+        "link": "https://www.langhamhotels.com/en/the-langham/london/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1181, 51.5177]
+      },
+      "properties": {
+        "name": "Rosewood London",
+        "address": "252 High Holborn, London WC1V 7EN",
+        "type": "hotel",
+        "link": "https://www.rosewoodhotels.com/en/london"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.0803, 51.5145]
+      },
+      "properties": {
+        "name": "The Gherkin (Searcys)",
+        "address": "30 St Mary Axe, London EC3A 8EP",
+        "type": "conference",
+        "link": "https://searcys.co.uk/the-gherkin/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [0.026, 51.5081]
+      },
+      "properties": {
+        "name": "ExCeL London",
+        "address": "Royal Victoria Dock, 1 Western Gateway, London E16 1XL",
+        "type": "conference",
+        "link": "https://www.excel.london/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1291, 51.4995]
+      },
+      "properties": {
+        "name": "QEII Centre",
+        "address": "Broad Sanctuary, Westminster, London SW1P 3EE",
+        "type": "conference",
+        "link": "https://qeiicentre.london/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1142, 51.499]
+      },
+      "properties": {
+        "name": "Park Plaza Westminster Bridge",
+        "address": "200 Westminster Bridge Rd, London SE1 7UT",
+        "type": "hotel",
+        "link": "https://www.parkplazawestminsterbridge.com/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [0.0032, 51.503]
+      },
+      "properties": {
+        "name": "The O2 Arena",
+        "address": "Peninsula Square, London SE10 0DX",
+        "type": "conference",
+        "link": "https://www.theo2.co.uk/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.098, 51.5057]
+      },
+      "properties": {
+        "name": "Hilton London Bankside",
+        "address": "2-8 Great Suffolk St, London SE1 0UG",
+        "type": "hotel",
+        "link": "https://www.hilton.com/en/hotels/lonlbhi-hilton-london-bankside/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [0.0063, 51.5039]
+      },
+      "properties": {
+        "name": "InterContinental London - The O2",
+        "address": "1 Waterview Dr, London SE10 0TW",
+        "type": "hotel",
+        "link": "https://www.ihg.com/intercontinental/hotels/gb/en/london/lonso/hoteldetail"
+      }
+    }
+  ]
+}
