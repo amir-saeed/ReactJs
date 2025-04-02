@@ -1,0 +1,190 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.hero {
+  height: 100vh;
+  min-height: 600px;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('/images/hero-bg.svg');
+  background-size: cover;
+  background-position: center;
+  color: $light-text;
+  position: relative;
+  
+  &__container {
+    @include container;
+    @include flex(column, center, flex-start);
+    height: 100%;
+    padding-top: 80px; // Account for fixed header
+  }
+  
+  &__content {
+    max-width: 600px;
+    margin-bottom: $spacing-xxl;
+    
+    @include respond-to('md') {
+      margin-bottom: 0;
+    }
+  }
+  
+  &__title {
+    font-size: 32px;
+    margin-bottom: $spacing-lg;
+    
+    @include respond-to('md') {
+      font-size: 42px;
+    }
+    
+    @include respond-to('lg') {
+      font-size: 56px;
+    }
+  }
+  
+  &__subtitle {
+    font-size: $font-size-large;
+    margin-bottom: $spacing-xl;
+    opacity: 0.9;
+    
+    @include respond-to('md') {
+      font-size: $font-size-xl;
+    }
+  }
+  
+  &__cta {
+    @include flex(row, flex-start, center);
+    gap: $spacing-md;
+  }
+}
+
+.featured {
+  padding: $spacing-xxl 0;
+  background-color: $background-light;
+  
+  &__grid {
+    @include grid(1, $spacing-xl, $natural-margin);
+    margin-top: $spacing-xl;
+    
+    @include respond-to('md') {
+      @include grid(2, $spacing-xl, $natural-margin);
+    }
+    
+    @include respond-to('lg') {
+      @include grid(3, $spacing-xl, $natural-margin);
+    }
+  }
+}
+
+.testimonials {
+  padding: $spacing-xxl 0;
+  background-color: $background-dark;
+  
+  &__grid {
+    @include grid(1, $spacing-xl, $natural-margin);
+    margin-top: $spacing-xl;
+    
+    @include respond-to('md') {
+      @include grid(2, $spacing-xl, $natural-margin);
+    }
+    
+    @include respond-to('lg') {
+      @include grid(3, $spacing-xl, $natural-margin);
+    }
+  }
+  
+  &__item {
+    background-color: $background-light;
+    padding: $spacing-xl;
+    border-radius: $border-radius-md;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  }
+  
+  &__quote {
+    font-style: italic;
+    margin-bottom: $spacing-lg;
+    color: rgba($text-color, 0.8);
+  }
+  
+  &__author {
+    @include flex(row, flex-start, center);
+    gap: $spacing-md;
+  }
+  
+  &__avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  &__name {
+    font-weight: $font-weight-semibold;
+  }
+  
+  &__location {
+    font-size: $font-size-small;
+    color: rgba($text-color, 0.6);
+  }
+}
+
+.newsletter {
+  padding: $spacing-xxl 0;
+  background-color: $primary-color;
+  color: $light-text;
+  
+  &__container {
+    @include container;
+    text-align: center;
+  }
+  
+  &__title {
+    margin-bottom: $spacing-md;
+  }
+  
+  &__description {
+    max-width: 600px;
+    margin: 0 auto $spacing-xl;
+    opacity: 0.9;
+  }
+  
+  &__form {
+    @include flex(column, center, stretch);
+    max-width: 500px;
+    margin: 0 auto;
+    
+    @include respond-to('md') {
+      @include flex(row, center, stretch);
+    }
+    
+    input {
+      flex: 1;
+      padding: $spacing-md;
+      border: none;
+      border-radius: $border-radius-md;
+      margin-bottom: $spacing-md;
+      
+      @include respond-to('md') {
+        margin-bottom: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+    
+    button {
+      padding: $spacing-md $spacing-xl;
+      background-color: $secondary-color;
+      color: $light-text;
+      border: none;
+      border-radius: $border-radius-md;
+      cursor: pointer;
+      transition: background-color $transition-fast;
+      
+      @include respond-to('md') {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      
+      &:hover {
+        background-color: darken($secondary-color, 10%);
+      }
+    }
+  }
+}

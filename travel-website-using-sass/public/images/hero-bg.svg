@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+  <!-- Sky gradient background -->
+  <defs>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1a4ba5" />
+      <stop offset="60%" stop-color="#62b6e6" />
+      <stop offset="100%" stop-color="#b0e0fe" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#skyGradient)" />
+
+  <!-- Sun -->
+  <circle cx="900" cy="120" r="60" fill="#ffdd62" />
+  <circle cx="900" cy="120" r="68" fill="#ffdd62" opacity="0.3" />
+  <circle cx="900" cy="120" r="76" fill="#ffdd62" opacity="0.1" />
+
+  <!-- Distant mountains -->
+  <path d="M0,240 L120,180 L180,210 L280,150 L380,190 L480,140 L580,200 L680,170 L780,220 L880,160 L980,210 L1080,170 L1200,240 L1200,600 L0,600 Z" fill="#465a7a" opacity="0.7" />
+
+  <!-- Mid-distance mountains -->
+  <path d="M0,280 L150,200 L280,260 L400,190 L550,280 L680,220 L830,290 L950,210 L1050,270 L1200,230 L1200,600 L0,600 Z" fill="#2e3d53" opacity="0.8" />
+
+  <!-- Water/Lake -->
+  <path d="M0,330 C150,310 300,340 450,320 C600,300 750,330 900,310 C1050,290 1150,320 1200,310 L1200,600 L0,600 Z" fill="#2a7da1" opacity="0.8" />
+
+  <!-- Beach/shore -->
+  <path d="M0,365 C120,355 200,370 320,355 C440,340 560,365 680,350 C800,335 920,360 1040,345 C1100,338 1150,350 1200,345 L1200,600 L0,600 Z" fill="#e6d2a8" />
+
+  <!-- Foreground mountains -->
+  <path d="M0,350 L100,280 L200,320 L300,250 L400,330 L500,270 L600,350 L700,290 L800,360 L900,280 L1000,340 L1100,270 L1200,350 L1200,600 L0,600 Z" fill="#1a2636" />
+
+  <!-- Palm tree 1 -->
+  <rect x="250" y="350" width="10" height="40" fill="#5b3b17" />
+  <path d="M230,360 Q255,330 280,360" stroke="#1a8334" stroke-width="5" fill="none" />
+  <path d="M235,350 Q255,320 275,350" stroke="#1a8334" stroke-width="5" fill="none" />
+  <path d="M240,340 Q255,310 270,340" stroke="#1a8334" stroke-width="5" fill="none" />
+  <path d="M255,350 Q235,320 215,330" stroke="#1a8334" stroke-width="5" fill="none" />
+  <path d="M255,340 Q275,320 295,330" stroke="#1a8334" stroke-width="5" fill="none" />
+
+  <!-- Palm tree 2 -->
+  <rect x="950" y="340" width="10" height="45" fill="#5b3b17" />
+  <path d="M930,350 Q955,320 980,350" stroke="#1a8334" stroke-width="5" fill="none" />
+  <path d="M935,340 Q955,310 975,340" stroke="#1a8334" stroke-width="5" fill="none" />
+  <path d="M940,330 Q955,300 970,330" stroke="#1a8334" stroke-width="5" fill="none" />
+  <path d="M955,340 Q935,310 915,320" stroke="#1a8334" stroke-width="5" fill="none" />
+  <path d="M955,330 Q975,310 995,320" stroke="#1a8334" stroke-width="5" fill="none" />
+
+  <!-- Sailboat 1 -->
+  <path d="M400,340 L410,340 L405,310 Z" fill="#ffffff" />
+  <path d="M405,340 L415,340 L425,320 L405,320 Z" fill="#ff6347" />
+  <rect x="397" y="340" width="16" height="5" fill="#8b4513" />
+
+  <!-- Sailboat 2 -->
+  <path d="M750,320 L765,320 L758,280 Z" fill="#ffffff" />
+  <path d="M758,320 L773,320 L788,290 L758,290 Z" fill="#4169e1" />
+  <rect x="747" y="320" width="22" height="7" fill="#8b4513" />
+
+  <!-- Small waves -->
+  <path d="M100,370 Q120,365 140,370 Q160,375 180,370" stroke="#2a7da1" stroke-width="2" fill="none" />
+  <path d="M300,365 Q320,360 340,365 Q360,370 380,365" stroke="#2a7da1" stroke-width="2" fill="none" />
+  <path d="M600,370 Q620,365 640,370 Q660,375 680,370" stroke="#2a7da1" stroke-width="2" fill="none" />
+  <path d="M850,365 Q870,360 890,365 Q910,370 930,365" stroke="#2a7da1" stroke-width="2" fill="none" />
+
+  <!-- Semi-transparent overlay for text readability -->
+  <rect width="1200" height="600" fill="#000000" opacity="0.15" />
+</svg>

@@ -1,0 +1,63 @@
+@use './variables' as *;
+
+// Media query mixins
+@mixin respond-to($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+      @media (min-width: map-get($breakpoints, $breakpoint)) {
+        @content;
+      }
+    } @else {
+      @warn "Breakpoint #{$breakpoint} not found!";
+    }
+  }
+  
+  // Flexbox mixins
+  @mixin flex($direction: row, $justify: flex-start, $align: stretch, $wrap: nowrap) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    flex-wrap: $wrap;
+  }
+  
+  // Grid mixins
+  @mixin grid($columns: 1, $gap: $spacing-md, $margin) {
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    gap: $gap;
+    margin-top: $margin;
+  }
+  
+  // Typography mixins
+  @mixin font-size($size, $line-height: 1.5) {
+    font-size: $size;
+    line-height: $line-height;
+  }
+  
+  // Button mixins
+  @mixin button-base {
+    display: inline-block;
+    padding: $spacing-sm $spacing-lg;
+    border-radius: $border-radius-md;
+    font-weight: $font-weight-medium;
+    text-align: center;
+    cursor: pointer;
+    transition: all $transition-normal;
+    text-decoration: none;
+  }
+  
+  // Container mixin
+  @mixin container {
+    width: 100%;
+    max-width: $container-max-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $spacing-lg;
+    padding-right: $spacing-lg;
+    
+    @include respond-to('md') {
+      padding-left: $spacing-xl;
+      padding-right: $spacing-xl;
+    }
+  }
+  

@@ -1,0 +1,107 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.footer {
+  background-color: $footer-bg;
+  color: $light-text;
+  padding: $spacing-xl 0;
+  
+  &__container {
+    @include container;
+  }
+  
+  &__grid {
+    @include grid(1, $spacing-xl, $natural-margin);
+    
+    @include respond-to('md') {
+      @include grid(2, $spacing-xl, $natural-margin);
+    }
+    
+    @include respond-to('lg') {
+      @include grid(4, $spacing-xl, $extra-margin);
+    }
+  }
+  
+  &__column {
+    margin-bottom: $spacing-lg;
+    
+    @include respond-to('lg') {
+      margin-bottom: 0;
+    }
+  }
+  
+  &__title {
+    font-size: $font-size-large;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-lg;
+    color: $light-text;
+  }
+  
+  &__logo {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $light-text;
+    margin-bottom: $spacing-md;
+  }
+  
+  &__description {
+    color: rgba($light-text, 0.7);
+    margin-bottom: $spacing-lg;
+  }
+  
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  &__item {
+    margin-bottom: $spacing-sm;
+  }
+  
+  &__link {
+    color: rgba($light-text, 0.7);
+    transition: color $transition-fast;
+    
+    &:hover {
+      color: $light-text;
+    }
+  }
+  
+  &__form {
+    @include flex(column, flex-start, stretch);
+    margin-top: $spacing-md;
+    
+    input {
+      padding: $spacing-sm $spacing-md;
+      border-radius: $border-radius-md;
+      border: none;
+      margin-bottom: $spacing-sm;
+    }
+  }
+  
+  &__social {
+    @include flex(row, flex-start, center);
+    gap: $spacing-md;
+    margin-top: $spacing-lg;
+    
+    a {
+      color: $light-text;
+      text-decoration: none;
+      transition: transform $transition-fast;
+      
+      &:hover {
+        transform: translateY(-3px);
+      }
+    }
+  }
+  
+  &__bottom {
+    margin-top: $spacing-xl;
+    padding-top: $spacing-lg;
+    border-top: 1px solid rgba($light-text, 0.1);
+    text-align: center;
+    color: rgba($light-text, 0.5);
+    font-size: $font-size-small;
+  }
+}

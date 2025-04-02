@@ -1,0 +1,50 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.btn {
+  @include button-base;
+  font-size: $font-size-base;
+  
+  &--primary {
+    background-color: $primary-color;
+    color: $light-text;
+    border: none;
+    
+    &:hover {
+      background-color: darken($primary-color, 10%);
+      color: $light-text;
+    }
+  }
+  
+  &--secondary {
+    background-color: $secondary-color;
+    color: $light-text;
+    border: none;
+    
+    &:hover {
+      background-color: darken($secondary-color, 10%);
+      color: $light-text;
+    }
+  }
+  
+  &--outline {
+    background-color: transparent;
+    color: $primary-color;
+    border: 2px solid $primary-color;
+    
+    &:hover {
+      background-color: $primary-color;
+      color: $light-text;
+    }
+  }
+  
+  &--large {
+    padding: $spacing-md $spacing-xl;
+    font-size: $font-size-large;
+  }
+  
+  &--small {
+    padding: $spacing-xs $spacing-md;
+    font-size: $font-size-small;
+  }
+}

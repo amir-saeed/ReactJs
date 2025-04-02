@@ -1,0 +1,52 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.card {
+  background-color: $background-light;
+  border-radius: $border-radius-md;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform $transition-normal;
+  height: 100%;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+  
+  &__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    
+    @include respond-to('md') {
+      height: 250px;
+    }
+  }
+  
+  &__content {
+    padding: $spacing-lg;
+  }
+  
+  &__title {
+    font-size: $font-size-large;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-sm;
+  }
+  
+  &__description {
+    color: rgba($text-color, 0.7);
+    margin-bottom: $spacing-md;
+  }
+  
+  &__price {
+    font-size: $font-size-large;
+    font-weight: $font-weight-bold;
+    color: $accent-color;
+    margin-bottom: $spacing-md;
+  }
+  
+  &__footer {
+    @include flex(row, space-between, center);
+    margin-top: $spacing-md;
+  }
+}

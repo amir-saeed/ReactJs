@@ -1,0 +1,107 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.nav {
+  &__list {
+    @include flex(row, center, center);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
+    @include respond-to('md') {
+      gap: $spacing-lg;
+    }
+    
+    @media (max-width: map-get($breakpoints, 'md')) {
+      @include flex(column, flex-start, flex-start);
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 280px;
+      height: 100vh;
+      background-color: $background-light;
+      padding: $spacing-xl $spacing-lg;
+      z-index: $z-index-fixed;
+      transition: right $transition-normal;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+      
+      &.active {
+        right: 0;
+      }
+    }
+  }
+  
+  &__item {
+    margin: 0;
+    
+    @media (max-width: map-get($breakpoints, 'md')) {
+      width: 100%;
+      margin-bottom: $spacing-md;
+    }
+  }
+  
+  &__link {
+    color: $dark-text;
+    font-weight: $font-weight-medium;
+    padding: $spacing-xs $spacing-sm;
+    transition: color $transition-fast;
+    
+    &:hover,
+    &.active {
+      color: $primary-color;
+    }
+    
+    @media (max-width: map-get($breakpoints, 'md')) {
+      display: block;
+      padding: $spacing-sm 0;
+    }
+  }
+  
+  &__toggle {
+    display: none;
+    cursor: pointer;
+    
+    @media (max-width: map-get($breakpoints, 'md')) {
+      display: block;
+    }
+    
+    &-bar {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 5px 0;
+      background-color: $dark-text;
+      border-radius: $border-radius-sm;
+      transition: all $transition-fast;
+    }
+    
+    &.active {
+      .nav__toggle-bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+      }
+      
+      .nav__toggle-bar:nth-child(2) {
+        opacity: 0;
+      }
+      
+      .nav__toggle-bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+      }
+    }
+  }
+  
+  &__overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: $z-index-modal-backdrop;
+    
+    &.active {
+      display: block;
+    }
+  }
+}
