@@ -1,54 +1,95 @@
-# React + TypeScript + Vite
+# MapBox, React , TypeScript and Tailwind CSS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The my-mapbox-app project is a React application that integrates Mapbox to provide interactive mapping functionalities. Developed using TypeScript and Vite, this project offers a modern development environment with features like Hot Module Replacement (HMR) and an ESLint configuration for code quality assurance.​
 
-Currently, two official plugins are available:
+Key Features:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React with TypeScript: Leverages the strengths of TypeScript for static typing, enhancing code reliability and maintainability.​
 
-## Expanding the ESLint configuration
+Vite as the Build Tool: Utilises Vite for rapid development and efficient build processes, ensuring a smooth developer experience.​
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Mapbox Integration: Incorporates Mapbox GL JS to render dynamic and interactive maps, allowing for custom map styles and layers.​
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Location Markers: Displays markers on the map to indicate specific locations of interest.​
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Search Functionality: Enables users to search for hotels, resorts, and conference centres, displaying the results with corresponding markers on the map.​
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Tailwind CSS for Styling: Employs Tailwind CSS to facilitate responsive and utility-first styling, streamlining the design process.​
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Getting Started:
+
+To set up and run the project locally:
+
+Clone the Repository:
+
+bash
+Copy
+Edit
+git clone https://github.com/amir-saeed/ReactJs.git
+Navigate to the Project Directory:
+
+bash
+Copy
+Edit
+cd ReactJs/my-mapbox-app
+Install Dependencies:
+
+bash
+Copy
+Edit
+npm install
+Set Up Environment Variables:
+
+Create a .env file in the root directory and add your Mapbox access token:
+
+ini
+Copy
+Edit
+VITE_MAPBOX_ACCESS_TOKEN=your_mapbox_access_token
+Start the Development Server:
+
+bash
+Copy
+Edit
+npm run dev
+The application will be running at http://localhost:3000.
+
+Project Structure:
+
+public/: Contains static assets and the index.html file.​
+
+src/: Houses the main application code, including components and styles.​
+
+package.json: Lists project dependencies and scripts.​
+
+vite.config.ts: Configuration file for Vite.​
+
+tailwind.config.js: Configuration file for Tailwind CSS.​
+
+Dependencies:
+
+The project relies on several key packages:​
+
+react: Library for building user interfaces.​
+
+react-dom: Serves as the entry point to the DOM and server renderers for React.​
+
+mapbox-gl: JavaScript library for interactive, customizable vector maps.​
+
+tailwindcss: Utility-first CSS framework for rapid UI development.​
+
+Available Scripts:
+
+npm run dev: Starts the development server with HMR.​
+
+npm run build: Bundles the application for production.​
+
+npm run serve: Serves the production build locally.​
+
+Contributing:
+
+Contributions are welcome! If you have suggestions for improvements or encounter any issues, please open an issue or submit a pull request.​
+
+License:
+
+This project is licensed under the MIT License.
