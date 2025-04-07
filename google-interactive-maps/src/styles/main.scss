@@ -1,0 +1,77 @@
+@use './variables' as *;
+
+// Global styles
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+// Reset
+* {
+  box-sizing: border-box;
+}
+
+// Map container
+.map-container {
+  height: 100%;
+  width: 100%;
+}
+
+// Properties map and container
+.properties-map-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+// Loading state
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba($white, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  
+  &__text {
+    font-size: $font-lg;
+    color: $black;
+  }
+}
+
+// Error state
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba($white, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  
+  &__text {
+    font-size: $font-lg;
+    color: red;
+    text-align: center;
+    padding: $spacing-xl;
+  }
+}

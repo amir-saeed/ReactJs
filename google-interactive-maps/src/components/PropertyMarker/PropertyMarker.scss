@@ -1,0 +1,163 @@
+@use '../../styles/variables' as *;
+
+.property {
+  align-items: center;
+  background-color: $white;
+  border-radius: $border-radius-circle;
+  color: $black;
+  display: flex;
+  font-size: $font-sm;
+  gap: $spacing-xl;
+  height: $marker-size;
+  justify-content: center;
+  padding: $spacing-xs;
+  position: relative;
+  transition: $transition-default;
+  width: $marker-size;
+  cursor: pointer;
+  
+  &::after {
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-top: 9px solid $white;
+    content: "";
+    height: 0;
+    left: 50%;
+    position: absolute;
+    top: 95%;
+    transform: translate(-50%, 0);
+    transition: $transition-default;
+    width: 0;
+    z-index: 1;
+  }
+  
+  &__icon {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    color: $white;
+    
+    svg {
+      height: $icon-size;
+      width: auto;
+    }
+  }
+  
+  &__details {
+    display: none;
+    flex-direction: column;
+    flex: 1;
+  }
+  
+  &__address {
+    color: $gray-medium;
+    font-size: $font-xs;
+    margin-bottom: $spacing-lg;
+    margin-top: $spacing-sm;
+  }
+  
+  &__features {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: row;
+    gap: $spacing-lg;
+    
+    &-item {
+      align-items: center;
+      background: $gray-light;
+      border-radius: $border-radius-sm;
+      border: 1px solid $gray-dark;
+      display: flex;
+      font-size: $font-xs;
+      gap: $spacing-sm;
+      padding: $spacing-sm;
+    }
+  }
+  
+  &__bed {
+    color: $bed-color;
+  }
+  
+  &__bath {
+    color: $bath-color;
+  }
+  
+  &__size {
+    color: $size-color;
+  }
+  
+  // Highlighted state
+  &--highlight {
+    background-color: $white;
+    border-radius: $border-radius-md;
+    box-shadow: $shadow-default;
+    height: $marker-size-highlight;
+    padding: $spacing-md $spacing-xl;
+    width: auto;
+    z-index: 100;
+    
+    &::after {
+      border-top: 9px solid $white;
+    }
+    
+    .property__details {
+      display: flex;
+    }
+    
+    .property__icon {
+      svg {
+        width: $icon-size-highlight;
+        height: $icon-size-highlight;
+      }
+    }
+  }
+  
+  // Property type styles
+  &--home:not(.property--highlight) {
+    background-color: $house-color;
+    
+    &::after {
+      border-top: 9px solid $house-color;
+    }
+  }
+  
+  &--home.property--highlight .property__icon {
+    color: $house-color;
+  }
+  
+  &--building:not(.property--highlight) {
+    background-color: $building-color;
+    
+    &::after {
+      border-top: 9px solid $building-color;
+    }
+  }
+  
+  &--building.property--highlight .property__icon {
+    color: $building-color;
+  }
+  
+  &--warehouse:not(.property--highlight) {
+    background-color: $warehouse-color;
+    
+    &::after {
+      border-top: 9px solid $warehouse-color;
+    }
+  }
+  
+  &--warehouse.property--highlight .property__icon {
+    color: $warehouse-color;
+  }
+  
+  &--store-alt:not(.property--highlight) {
+    background-color: $shop-color;
+    
+    &::after {
+      border-top: 9px solid $shop-color;
+    }
+  }
+  
+  &--store-alt.property--highlight .property__icon {
+    color: $shop-color;
+  }
+}
