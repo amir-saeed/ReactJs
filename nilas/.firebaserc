@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "nila-core"
+  },
+  "targets": {
+    "nila-core": {
+      "hosting": {
+        "uat-nila-fcm": [
+          "uat-nila-fcm"
+        ],
+        "nila-fcm": [
+          "nila-fcm"
+        ]
+      }
+    }
+  }
+}
