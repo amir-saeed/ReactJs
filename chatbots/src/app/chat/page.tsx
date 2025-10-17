@@ -68,10 +68,6 @@ export default function ChatPage() {
           Send
         </button>
       </div>
-      <p className="text-xs text-gray-500 mt-2 italic">
-        ⚠️ This assistant provides general health information only and is not a
-        substitute for professional medical advice.
-      </p>
     </div>
   );
 }
