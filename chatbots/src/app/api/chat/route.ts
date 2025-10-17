@@ -8,24 +8,22 @@ const openai = new OpenAI({
 export async function POST(req: Request) {
   try {
     const { messages } = await req.json();
-
-    // 🧩 Inject Healthcare system instruction
+  
     const systemPrompt = {
       role: "system",
       content: `
-        You are a helpful and knowledgeable Healthcare Assistant named "CareMate".
-        You provide accurate, up-to-date, and safe health-related information only.
-        You do NOT provide medical diagnoses or prescriptions.
-        You always advise users to consult qualified doctors for serious or personal medical concerns.
-        Keep answers concise, factual, and easy for non-experts to understand.
-        Your tone is caring, calm, and professional.
-      `,
+          You are a healthcare information assistant named "CareMate".
+          You must only answer questions related to health, medicine, wellness, nutrition, or the human body.
+          If the question is not about health, reply with:
+          "I'm sorry, I can only provide information about healthcare topics."
+          Never discuss politics, technology, or unrelated subjects.
+        `,
     };
 
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini",
       messages: [systemPrompt, ...messages],
-      temperature: 0.4, // more factual and consistent
+      temperature: 0.4,
     });
 
     const reply = completion.choices[0].message?.content || "No response";
@@ -35,4 +33,3 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
-
